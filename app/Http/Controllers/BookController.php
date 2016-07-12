@@ -26,8 +26,8 @@ class BookController extends Controller
     public function index()
     {
         $aBooks = $this->rBook
-            ->with('author')
-            ->with('category')
+            ->with('author', 'category')
+            ->orderBy('name')
             ->get();
         return response()->json($aBooks);
     }
@@ -54,8 +54,7 @@ class BookController extends Controller
     public function show($id)
     {
         $oBook = $this->rBook
-            ->with('author')
-            ->with('category')
+            ->with('author', 'category')
             ->find($id);
         return response()->json($oBook);
     }
@@ -85,6 +84,7 @@ class BookController extends Controller
     {
         $this->rBook->delete($id);
         $aBooks = $this->rBook
+            ->orderBy('name')
             ->get();
         return response()->json($aBooks);
 

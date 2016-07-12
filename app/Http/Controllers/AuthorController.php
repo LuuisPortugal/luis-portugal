@@ -26,6 +26,7 @@ class AuthorController extends Controller
     public function index()
     {
         $aAuthors = $this->rAuthor
+            ->orderBy('name')
             ->get();
         return response()->json($aAuthors);
     }
@@ -80,6 +81,7 @@ class AuthorController extends Controller
     {
         $this->rAuthor->delete($id);
         $oAuthor = $this->rAuthor
+            ->orderBy('name')
             ->get();
         return response()->json($oAuthor);
 
@@ -87,7 +89,9 @@ class AuthorController extends Controller
 
     public function showBooks($id)
     {
-        $aBooks = \App\Book::where('author_id', $id)->get();
+        $aBooks = \App\Book::where('author_id', $id)
+            ->orderBy('name')
+            ->get();
         return response()->json($aBooks);
     }
 }

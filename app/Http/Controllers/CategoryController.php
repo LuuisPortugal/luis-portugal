@@ -27,6 +27,7 @@ class CategoryController extends Controller
     public function index()
     {
         $aCategories = $this->rCategory
+            ->orderBy('name')
             ->get();
         return response()->json($aCategories);
     }
@@ -81,6 +82,7 @@ class CategoryController extends Controller
     {
         $this->rCategory->delete($id);
         $aCategories = $this->rCategory
+            ->orderBy('name')
             ->get();
         return response()->json($aCategories);
 
@@ -88,7 +90,9 @@ class CategoryController extends Controller
 
     public function showBooks($id)
     {
-        $aCategories = \App\Book::where('category_id', $id)->get();
+        $aCategories = \App\Book::where('category_id', $id)
+            ->orderBy('name')
+            ->get();
         return response()->json($aCategories);
     }
 }
