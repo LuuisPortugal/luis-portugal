@@ -1,8 +1,4 @@
 <?php
-
-$script = `php artisan migrate --seed`;
-echo $script;
-die('aqui');
 /*
 |--------------------------------------------------------------------------
 | Application Routes
