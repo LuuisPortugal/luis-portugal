@@ -42,7 +42,7 @@
 <body>
 <div class="container">
     <div class="content">
-        <div class="title">DEUS Seja Louvado</div>
+        <div class="title">DEUS, seja louvado</div>
         <div class="subtitle">Bem Vindo.</div>
     </div>
 </div>
