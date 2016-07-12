@@ -16,14 +16,14 @@ Route::get('/', function () {
 
 Route::group(['prefix' => 'api'], function () {
     //Book
-    Route::get('/books', ['as' => 'BookController.index', 'uses' => 'BookController@index']);
+    Route::get('/book', ['as' => 'BookController.index', 'uses' => 'BookController@index']);
     Route::post('/book', ['as' => 'BookController.store', 'uses' => 'BookController@store']);
     Route::get('/book/{id}', ['as' => 'BookController.show', 'uses' => 'BookController@show']);
     Route::put('/book/{id}', ['as' => 'BookController.update', 'uses' => 'BookController@update']);
     Route::delete('/book/{id}', ['as' => 'BookController.destroy', 'uses' => 'BookController@destroy']);
 
     //Author
-    Route::get('/authors', ['as' => 'AuthorController.index', 'uses' => 'AuthorController@index']);
+    Route::get('/author', ['as' => 'AuthorController.index', 'uses' => 'AuthorController@index']);
     Route::post('/author', ['as' => 'AuthorController.store', 'uses' => 'AuthorController@store']);
     Route::get('/author/{id}', ['as' => 'AuthorController.show', 'uses' => 'AuthorController@show']);
     Route::get('/author/{id}/books', ['as' => 'AuthorController.showBooks', 'uses' => 'AuthorController@showBooks']);
@@ -31,7 +31,7 @@ Route::group(['prefix' => 'api'], function () {
     Route::delete('/author/{id}', ['as' => 'AuthorController.destroy', 'uses' => 'AuthorController@destroy']);
 
     //Caterory
-    Route::get('/categories', ['as' => 'CategoryController.index', 'uses' => 'CategoryController@index']);
+    Route::get('/category', ['as' => 'CategoryController.index', 'uses' => 'CategoryController@index']);
     Route::post('/category', ['as' => 'CategoryController.store', 'uses' => 'CategoryController@store']);
     Route::get('/category/{id}', ['as' => 'CategoryController.show', 'uses' => 'CategoryController@show']);
     Route::get('/category/{id}/books', ['as' => 'CategoryController.showBooks', 'uses' => 'CategoryController@showBooks']);
