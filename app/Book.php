@@ -14,6 +14,10 @@ class Book extends Model
         'name', 'description', 'author_id', 'category_id', 'year', 'pages_length'
     ];
 
+    protected $hidden = [
+        'created_at', 'updated_at', 'deleted_at'
+    ];
+
     public function category(){
         return $this->hasOne(\App\Category::class, 'id', 'category_id');
     }

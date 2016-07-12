@@ -13,6 +13,10 @@ class Author extends Model
         'name'
     ];
 
+    protected $hidden = [
+        'created_at', 'updated_at', 'deleted_at'
+    ];
+
     public function books(){
         return $this->belongsTo(\App\Book::class, 'author_id', 'id');
 
