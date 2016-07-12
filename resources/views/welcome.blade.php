@@ -33,12 +33,17 @@
         .title {
             font-size: 96px;
         }
+
+        .subtitle {
+            font-size: 50px;
+        }
     </style>
 </head>
 <body>
 <div class="container">
     <div class="content">
-        <div class="title">Laravel 5</div>
+        <div class="title">DEUS Seja Louvado</div>
+        <div class="subtitle">Bem Vindo.</div>
     </div>
 </div>
 </body>
