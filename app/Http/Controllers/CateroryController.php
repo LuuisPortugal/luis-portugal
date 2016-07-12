@@ -2,20 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use App\Book;
-use App\Http\Requests;
+use App\Category;
 use Illuminate\Http\Request;
 
-class BookController extends Controller
+use App\Http\Requests;
+use Illuminate\Support\Facades\App;
+
+class CateroryController extends Controller
 {
-    private $rBook;
+    private $rCategory;
 
     /**
      * BookController constructor.
      */
-    public function __construct(Book $book)
+    public function __construct(Category $category)
     {
-        $this->rBook = $book;
+        $this->rCategory = $category;
     }
 
     /**
@@ -25,11 +27,9 @@ class BookController extends Controller
      */
     public function index()
     {
-        $aBooks = $this->rBook
-            ->with('authors')
-            ->with('categories')
+        $aCategories = $this->rCategory
             ->get();
-        return response()->json($aBooks);
+        return response()->json($aCategories);
     }
 
     /**
@@ -40,9 +40,9 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        $oBook = $this->rBook
+        $oCategory = $this->rCategory
             ->create($request->all());
-        return response()->json($oBook);
+        return response()->json($oCategory);
     }
 
     /**
@@ -53,11 +53,8 @@ class BookController extends Controller
      */
     public function show($id)
     {
-        $oBook = $this->rBook
-            ->with('authors')
-            ->with('categories')
-            ->find($id);
-        return response()->json($oBook);
+        $oCategory = $this->rCategory->find($id);
+        return response()->json($oCategory);
     }
 
     /**
@@ -69,10 +66,10 @@ class BookController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $oBook = $this->rBook->find($id);
-        $oBook->fill($request->all());
-        $oBookUpdated = $oBook->save();
-        return response()->json($oBookUpdated);
+        $oCategory = $this->rCategory->find($id);
+        $oCategory->fill($request->all());
+        $oCategoryUpdated = $oCategory->save();
+        return response()->json($oCategoryUpdated);
     }
 
     /**
@@ -83,10 +80,16 @@ class BookController extends Controller
      */
     public function destroy($id)
     {
-        $this->rBook->delete($id);
-        $aBooks = $this->rBook
+        $this->rCategory->delete($id);
+        $aCategories = $this->rCategory
             ->get();
-        return response()->json($aBooks);
+        return response()->json($aCategories);
 
+    }
+
+    public function showBooks($id)
+    {
+        $aCategories = \App\Book::where('category_id', $id)->get();
+        return response()->json($aCategories);
     }
 }

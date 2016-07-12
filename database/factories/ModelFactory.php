@@ -26,10 +26,13 @@ $factory->define(App\Book::class, function (Faker\Generator $faker) {
         'description' => $faker->text(),
         'author_id' => random_int(1, App\Author::count()),
         'year' => $faker->year,
-        'pages_length' => $faker->randomDigitNotNull
+        'pages_length' => $faker->randomDigitNotNull,
+        'category_id' => random_int(1, 26)
     ];
 });
 
 $factory->define(App\Author::class, function (Faker\Generator $faker) {
-    return [];
+    return [
+        'name' => $faker->name
+    ];
 });

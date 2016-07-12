@@ -26,6 +26,15 @@ Route::group(['prefix' => 'api'], function () {
     Route::get('/authors', ['as' => 'AuthorController.index', 'uses' => 'AuthorController@index']);
     Route::post('/author', ['as' => 'AuthorController.store', 'uses' => 'AuthorController@store']);
     Route::get('/author/{id}', ['as' => 'AuthorController.show', 'uses' => 'AuthorController@show']);
+    Route::get('/author/{id}/books', ['as' => 'AuthorController.showBooks', 'uses' => 'AuthorController@showBooks']);
     Route::put('/author/{id}', ['as' => 'AuthorController.update', 'uses' => 'AuthorController@update']);
     Route::delete('/author/{id}', ['as' => 'AuthorController.destroy', 'uses' => 'AuthorController@destroy']);
+
+    //Caterory
+    Route::get('/caterories', ['as' => 'CateroryController.index', 'uses' => 'CateroryController@index']);
+    Route::post('/caterory', ['as' => 'CateroryController.store', 'uses' => 'CateroryController@store']);
+    Route::get('/caterory/{id}', ['as' => 'CateroryController.show', 'uses' => 'CateroryController@show']);
+    Route::get('/caterory/{id}/books', ['as' => 'CateroryController.showBooks', 'uses' => 'CateroryController@showBooks']);
+    Route::put('/caterory/{id}', ['as' => 'CateroryController.update', 'uses' => 'CateroryController@update']);
+    Route::delete('/caterory/{id}', ['as' => 'CateroryController.destroy', 'uses' => 'CateroryController@destroy']);
 });

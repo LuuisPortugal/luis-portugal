@@ -84,4 +84,10 @@ class AuthorController extends Controller
         return response()->json($oAuthor);
 
     }
+
+    public function showBooks($id)
+    {
+        $aBooks = \App\Book::where('author_id', $id)->get();
+        return response()->json($aBooks);
+    }
 }

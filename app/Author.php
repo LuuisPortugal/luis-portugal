@@ -10,11 +10,11 @@ class Author extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'user_id'
+        'name'
     ];
 
-    public function user()
-    {
-        return $this->hasOne(\App\User::class, 'id', 'user_id');
+    public function books(){
+        return $this->hasMany(\App\Book::class, 'author_id', 'id');
+
     }
 }

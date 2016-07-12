@@ -17,6 +17,7 @@ class CreateBooksTable extends Migration
             $table->string('name');
             $table->text('description');
             $table->integer('author_id')->references('id')->on('authors')->onDelete('cascade');
+            $table->integer('category_id');
             $table->char('year', 4);
             $table->integer('pages_length');
             $table->timestamps();
