@@ -15,10 +15,10 @@ class Book extends Model
     ];
 
     public function category(){
-        return $this->hasOne(\App\Category::class, 'id', 'category_id')->select(DB::raw('categories.name as category'))->get();
+        return $this->hasOne(\App\Category::class, 'id', 'category_id');
     }
 
     public function author(){
-        return $this->hasOne(\App\Author::class, 'id', 'author_id')->select(DB::raw('authors.name as author'))->get();
+        return $this->hasOne(\App\Author::class, 'id', 'author_id');
     }
 }
