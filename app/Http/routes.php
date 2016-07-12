@@ -31,10 +31,10 @@ Route::group(['prefix' => 'api'], function () {
     Route::delete('/author/{id}', ['as' => 'AuthorController.destroy', 'uses' => 'AuthorController@destroy']);
 
     //Caterory
-    Route::get('/caterories', ['as' => 'CateroryController.index', 'uses' => 'CateroryController@index']);
-    Route::post('/caterory', ['as' => 'CateroryController.store', 'uses' => 'CateroryController@store']);
-    Route::get('/caterory/{id}', ['as' => 'CateroryController.show', 'uses' => 'CateroryController@show']);
-    Route::get('/caterory/{id}/books', ['as' => 'CateroryController.showBooks', 'uses' => 'CateroryController@showBooks']);
-    Route::put('/caterory/{id}', ['as' => 'CateroryController.update', 'uses' => 'CateroryController@update']);
-    Route::delete('/caterory/{id}', ['as' => 'CateroryController.destroy', 'uses' => 'CateroryController@destroy']);
+    Route::get('/categories', ['as' => 'CategoryController.index', 'uses' => 'CategoryController@index']);
+    Route::post('/category', ['as' => 'CategoryController.store', 'uses' => 'CategoryController@store']);
+    Route::get('/category/{id}', ['as' => 'CategoryController.show', 'uses' => 'CategoryController@show']);
+    Route::get('/category/{id}/books', ['as' => 'CategoryController.showBooks', 'uses' => 'CategoryController@showBooks']);
+    Route::put('/category/{id}', ['as' => 'CategoryController.update', 'uses' => 'CategoryController@update']);
+    Route::delete('/category/{id}', ['as' => 'CategoryController.destroy', 'uses' => 'CategoryController@destroy']);
 });
