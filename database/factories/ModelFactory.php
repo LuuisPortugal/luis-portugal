@@ -32,7 +32,19 @@ $factory->define(App\Book::class, function (Faker\Generator $faker) {
 });
 
 $factory->define(App\Author::class, function (Faker\Generator $faker) {
+    $path = $faker->image("C:/Users/luis.portugal/Pictures/wallpaper");
+    $type = pathinfo($path, PATHINFO_EXTENSION);
+
+    $pathCover = $faker->image("C:/Users/luis.portugal/Pictures/profile");
+    $typeCover = pathinfo($path, PATHINFO_EXTENSION);
     return [
-        'name' => $faker->name
+        'name' => $faker->name,
+        'description' => join(" ", $faker->words),
+        'job' => $faker->jobTitle,
+        'email' => $faker->email,
+        'telefone' => $faker->randomNumber(9),
+        'biography' => join("\n\n", $faker->paragraphs),
+        'image' => 'data:image/' . $type . ';base64,' . base64_encode(file_get_contents($path)),
+        'imageCover' => 'data:image/' . $typeCover . ';base64,' . base64_encode(file_get_contents($pathCover))
     ];
 });
