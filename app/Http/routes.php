@@ -26,7 +26,7 @@ Route::group(['prefix' => 'api'], function () {
     Route::get('/author', ['as' => 'AuthorController.index', 'uses' => 'AuthorController@index']);
     Route::post('/author', ['as' => 'AuthorController.store', 'uses' => 'AuthorController@store']);
     Route::get('/author/{id}', ['as' => 'AuthorController.show', 'uses' => 'AuthorController@show']);
-    Route::get('/author/{id}/books', ['as' => 'AuthorController.showBooks', 'uses' => 'AuthorController@showBooks']);
+    Route::get('/author/{id}/book', ['as' => 'AuthorController.showBooks', 'uses' => 'AuthorController@showBooks']);
     Route::put('/author/{id}', ['as' => 'AuthorController.update', 'uses' => 'AuthorController@update']);
     Route::delete('/author/{id}', ['as' => 'AuthorController.destroy', 'uses' => 'AuthorController@destroy']);
 
@@ -34,7 +34,7 @@ Route::group(['prefix' => 'api'], function () {
     Route::get('/category', ['as' => 'CategoryController.index', 'uses' => 'CategoryController@index']);
     Route::post('/category', ['as' => 'CategoryController.store', 'uses' => 'CategoryController@store']);
     Route::get('/category/{id}', ['as' => 'CategoryController.show', 'uses' => 'CategoryController@show']);
-    Route::get('/category/{id}/books', ['as' => 'CategoryController.showBooks', 'uses' => 'CategoryController@showBooks']);
+    Route::get('/category/{id}/book', ['as' => 'CategoryController.showBooks', 'uses' => 'CategoryController@showBooks']);
     Route::put('/category/{id}', ['as' => 'CategoryController.update', 'uses' => 'CategoryController@update']);
     Route::delete('/category/{id}', ['as' => 'CategoryController.destroy', 'uses' => 'CategoryController@destroy']);
 });
