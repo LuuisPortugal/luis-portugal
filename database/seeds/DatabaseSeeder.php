@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
         factory(App\User::class, 5)->create();
 
         //Author
-        factory(App\Author::class, 8)->create();
+        factory(App\Author::class, 10)->create();
 
         //Category
         $categories = ['Livros sobre agropecuária‎', 'Antologias‎', 'Audiobooks‎', 'Livros de autoajuda‎', 'Livros de aventura‎', 'Livros biográficos‎',

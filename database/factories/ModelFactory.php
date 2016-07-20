@@ -33,6 +33,17 @@ $factory->define(App\Book::class, function (Faker\Generator $faker) {
 
 
 $factory->define(App\Author::class, function (Faker\Generator $faker) {
+
+    $curl = curl_init($faker->imageUrl(130, 130));
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true );
+    $dataImage =  chunk_split(base64_encode(curl_exec($curl)));
+    curl_close($curl);
+
+    $curl = curl_init($faker->imageUrl(480, 350));
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true );
+    $dataCover =  chunk_split(base64_encode(curl_exec($curl)));
+    curl_close($curl);
+
     return [
         'name' => $faker->name,
         'description' => join(" ", $faker->words),
@@ -40,7 +51,7 @@ $factory->define(App\Author::class, function (Faker\Generator $faker) {
         'email' => $faker->email,
         'telefone' => $faker->randomNumber(9),
         'biography' => join(" ", $faker->paragraphs),
-        'image' => $faker->imageUrl(640, 640),
-        'imageCover' => $faker->imageUrl(640, 640)
+        'image' => $dataImage,
+        'imageCover' => $dataCover
     ];
 });
